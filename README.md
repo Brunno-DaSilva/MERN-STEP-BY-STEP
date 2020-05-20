@@ -1,5 +1,7 @@
 # MERN-STEP-BY-STEP
 
+Todo App with Merd
+
 `mkdir mern-app`
 `cd mern-app`
 
@@ -254,4 +256,12 @@ Use curl:
               return <li>{todo.description}</li>;
             })}
         </ul>
+```
+
+## Add the componentDidMount() between state and getData(), pass the
+
+```
+ componentDidMount() {
+    this.getData();
+  }
 ```

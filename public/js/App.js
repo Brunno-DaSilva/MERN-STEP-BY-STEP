@@ -3,6 +3,10 @@ class App extends React.Component {
     todos: [],
   };
 
+  componentDidMount() {
+    this.getData();
+  }
+
   getData = () => {
     fetch("http://localhost:3000/todos")
       .then((response) => response.json())
