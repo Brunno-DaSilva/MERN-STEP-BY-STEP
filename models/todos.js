@@ -5,7 +5,7 @@
 const mongoose = require("mongoose");
 
 //=============================
-//      Users Schema
+// Todos Schema
 //=============================
 const todoSchema = new mongoose.Schema({
   description: String,
