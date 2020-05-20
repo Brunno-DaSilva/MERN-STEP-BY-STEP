@@ -2,7 +2,7 @@
 
 ### Summary
 
-Todo App with MERN stack. This is an exercise step-by-step guid where we will be building a MERN full-stack Todo app with `React CDN` for simplicity, however, you could use this backend as model to any front-end interface, such as Mobile, create-react-app, or other front-end framework, as we will be separating the concerns with our back-end 100% autonomous.
+Todo App with MERN stack. Learn MERN by using this step-by-step guide where we will be building a MERN full-stack Todo app with `React CDN` for simplicity, however, you could use this backend as model to any front-end interface, such as Mobile, create-react-app, or other front-end framework, as we will be separating the concerns with our back-end 100% autonomous. This is meant to beginners as an exercise project.
 
 `mkdir mern-app`
 `cd mern-app`
