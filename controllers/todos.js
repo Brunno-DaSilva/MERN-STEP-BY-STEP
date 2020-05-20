@@ -29,4 +29,28 @@ router.post("/", (req, res) => {
   });
 });
 
+//==========
+// Delete
+//==========
+router.delete("/:id", (req, res) => {
+  Todos.findByIdAndRemove(req.params.id, (err, deletedTodo) => {
+    res.json(deletedTodo);
+  });
+});
+
+//==========
+// Update
+//==========
+
+router.put("/:id", (req, res) => {
+  Todos.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedTodo) => {
+      res.json(updatedTodo);
+    }
+  );
+});
+
 module.exports = router;

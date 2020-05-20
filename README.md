@@ -266,6 +266,38 @@ Use curl:
   }
 ```
 
-#### At this point you should have a fully functional react application with some todos, if you have ran the curl command I mentioned previously.
+#### At this point you should have a fully functional react application with some todos, if you had ran the curl command I mentioned previously.
 
-Now, let's add a create and delete todos rout and the front-end with React.
+Now, let's add an update, delete todos route and create todo using our front-end with React.
+
+## Add the Update and Delete Routes
+
+They both will be added to the `controllers/todos.js` file. You will use mongoDB to locate the specific file and update or remove, to update you will do `findByIdAndUpdate()` and `findByIdAndRemove()`
+
+```
+//==========
+// Delete
+//==========
+router.delete("/:id", (req, res) => {
+  Todos.findByIdAndRemove(req.params.id, (err, deletedTodo) => {
+    res.json(deletedTodo);
+  });
+});
+
+```
+
+```
+//==========
+//Update
+//==========
+router.put("/:id", (req, res) => {
+  Todos.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (err, updatedTodo) => {
+      res.json(updatedTodo);
+    }
+  );
+});
+```
