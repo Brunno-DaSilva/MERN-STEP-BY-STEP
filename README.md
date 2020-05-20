@@ -265,3 +265,7 @@ Use curl:
     this.getData();
   }
 ```
+
+#### At this point you should have a fully functional react application with some todos, if you have ran the curl command I mentioned previously.
+
+Now, let's add a create and delete todos rout and the front-end with React.
