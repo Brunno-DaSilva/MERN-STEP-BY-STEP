@@ -23,18 +23,20 @@ const mongoose = require("mongoose");
 
 ## Add environment variables and set the App to Heroku deployment
 
+Setting the `process.env.PORT || localPortNumber` will ensure that your application will no matter what environment it is being connected, whether it is Heroku `process.env.PORT` or it is in your local machine `localPortNumber`
+
 ```
 //=============================
 //  Environment Variable
 //=============================
 const app = express();
 const mongoURI = process.env.MONGODB_URI || "mongodb://localhost:27017/merncrud";
-const PORT = process.env.PORT || 8083;
+const PORT = process.env.PORT || 3000;
 ```
 
 ## Make the connection with MongoDB
 
-Set the the mongoURI pass the mongodb parser and if the connection is successful log a message.
+Set the the mongoURI pass the mongoDB parser and if the connection is successful log a message.
 
 ```
 //=============================
@@ -55,7 +57,9 @@ mongoose.connection.on("error", (err) => console.log(err.message));
 mongoose.connection.on("disconnected", () => console.log("mongo disconnected"));
 ```
 
-## Set the variable app to listen to the appropriate port on your local machine it will run on 3000 or it will default to HEROKU
+## Now define the App Listening to your PORT variable
+
+Set the variable `app` to listen to the appropriate `PORT` in your local machine it will run on 3000 (or whatever number you assigned to `PORT`) or it will understand that you are in a HEROKU environment.
 
 ```
 //=================================================
@@ -66,11 +70,15 @@ app.listen(PORT, () => {
 });
 ```
 
-## Create a models folder and add a todos.js file and a todoSchema
+## Creating the Models directory
+
+Create a models folder and add a todos.js file and a todoSchema
 
 `mkdir models`
 
-`cd models touch todos.js`
+`touch models/todos.js`
+
+In your `touch models/todos.js` add your dependencies, create your Schema, your models variable, and export it.
 
 ```
 //=============================
@@ -80,7 +88,7 @@ app.listen(PORT, () => {
 const mongoose = require("mongoose");
 
 //=============================
-//      Users Schema
+//      Todos Schema
 //=============================
 const todoSchema = new mongoose.Schema({
   description: String,
@@ -100,7 +108,11 @@ module.exports = Todos;
 
 ```
 
-## Add a Middleware and fix the Model : The Middleware needs to be place at the top of the server.js bellow the environment variables
+## Add a Middleware and fix the Model
+
+Middleware are just "functions" that will assist your server to run appropriate tasks.
+
+The Middleware needs to be place at the top of the server.js, right bellow the environment variables
 
 ```
 //=============================
@@ -111,21 +123,31 @@ app.use(express.json()); //use .json(), not .urlencoded()
 app.use(express.static("public")); // we need to tell express to use the public directory for static files... this way our app will find index.html as the route of the application! We can then attach React to that file!
 ```
 
+Add the Model section in your server, later we will be moving it to it's own controllers folder. Like creating components in the same file in React and later assigning the components to it's own directory and file; it is a common practice build out sections in our server side ensure they are working properly and later on moving them to their own controller folder.
+
 ##### …
 
 ```
 //=============================
 //  Model
 //=============================
+
 const Todos = require("./models/todos.js");
+
+//==========
+// GET
+//==========
 app.get("/todos", (req, res) => {
   Todos.find({}, (err, foundTodos) => {
     res.json(foundTodos);
   });
 });
+
 ```
 
-## Create the post rout
+## Create the post route
+
+The post route will be placed underneath our GET route.
 
 ```
 //==========
@@ -141,21 +163,29 @@ app.post("/todos", (req, res) => {
 
 ## Create the Controllers
 
+Now, we can create the controller and move the Models to the controller. Don't forget to reference your controllers inside the server.js, otherwise, it will not work.
+
 `mkdir controllers`
 `touch controllers/todos.js`
 
-### Move Models, get, and post to the controllers file
+### Move Models
+
+Move the `get` and `post` to the `controllers/todos.js`. Notice how we require express and assign it to a variable called `router`, similarly with what we have done with the `app` variable inside the `server.js`. Next, we are getting our Todos from Models, underneath it we will add our rest full routers, and finally exporting them to be accessible in our `server.js` .
 
 ```
+
 //=============================
 // Dependencies
 //=============================
 const express = require("express");
 const router = express.Router();
+
 //=============================
 //  Model
 //=============================
+
 const Todos = require("../models/todos");
+
 //==========
 // GET
 //==========
@@ -164,6 +194,7 @@ router.get("/", (req, res) => {
     res.json(foundTodos);
   });
 });
+
 //==========
 // POST
 //==========
@@ -172,26 +203,41 @@ router.post("/", (req, res) => {
     res.json(createdTodo); //.json() will send proper headers in response so client knows it's json coming back
   });
 });
+
 module.exports = router;
+
 ```
 
-Use Curl to test it out:
+### Last step on our controller set up:
+
+To complete the controllers set up, make it it available in the `server.js` right before our `app.listen()` add the routers importing them from our controllers.
+
+    Assign controllers to a variable
+    Pass it as second params in `app.use()`
+    First params, is your route path.
+
+```
+
+//=============================
+//  Routers
+//=============================
+const todosController = require("./controllers/todos");
+
+app.use("/todos", todosController);
+
+```
+
+##### Use Curl to test it out:
 
 `nodemon`
 
 `curl -X POST -H "Content-Type: application/json" -d '{"description":"weee","complete":true}'`
 
-### To complete the controllers, connect it to the server
+## Create a Public directory
 
-```
-//=============================
-//  Routers
-//=============================
-const todosController = require("./controllers/todos");
-app.use("/todos", todosController);
-```
+Create a Public directory and `touch style.css & touch index.html`, and `mkdir js` and `touch js/App.js`
 
-## Create a Public folder and create style.css and index.html and add react CDN to the index
+Link the `style.css` and `App.js` alongside the `React CDN` scripts to the `index.html`
 
 ```
 <!DOCTYPE html>
@@ -212,7 +258,9 @@ app.use("/todos", todosController);
 </html>
 ```
 
-## Make App.js React your Main React Component
+## Go to App.js
+
+App.js is your Main React Component
 
 ```
 class App extends React.Component {
