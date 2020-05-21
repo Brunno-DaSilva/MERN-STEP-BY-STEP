@@ -1,5 +1,3 @@
-import { response } from "express";
-
 class App extends React.Component {
   state = {
     todos: [],

@@ -310,8 +310,9 @@ Since we already created our POST request our backend is ready with our app.post
 
 #### The form will contain a handleChange and handleSubmit events 
 
-    handleChange: I'll handle the changes in the form
-    handleSubmit: will get the data changed and send it to the backend
+    handleChange(): Will handle the changes in the form, by setting the state to the value typed by the user
+
+    handleSubmit(): Will get the data changed and send it to the backend
 
 ```
   handleChange = () => {
