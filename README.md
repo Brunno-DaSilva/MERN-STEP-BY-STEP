@@ -260,7 +260,7 @@ Link the `style.css` and `App.js` alongside the `React CDN` scripts to the `inde
 
 ## Go to App.js
 
-App.js is your Main React Component
+The `App.js` is your main React Component and is the entry point of your application, it will manage the state, data, adn other components in your application.
 
 ```
 class App extends React.Component {
@@ -294,12 +294,13 @@ state = {
 
 ## Pass the getData Method onClick and map over the current todos if any
 
-Use curl:
+##### Use curl to test it out:
 
 `curl -X POST -H "Content-Type: application/json" -d '{"description":"Code Master","complete":true}'`
 
 ```
 <button onClick={this.getData}>Get Todos</button>
+
         <ul>
           {this.state.todos.length > 0 &&
             this.state.todos.map((todo) => {
@@ -308,19 +309,20 @@ Use curl:
         </ul>
 ```
 
-## Add the componentDidMount() between state and getData(), pass the
+## Add the componentDidMount() between state and getData()
 
 ```
  componentDidMount() {
     this.getData();
   }
+
 ```
 
 #### At this point you should have a fully functional react application with some todos, if you had ran the curl command I mentioned previously.
 
-Now, let's add an update, delete todos route and create todo using our front-end with React.
+Now, let's add a delete todos route and create todo using our front-end with React.
 
-## Add the Update and Delete Routes
+## Add Delete and Update Routes
 
 They both will be added to the `controllers/todos.js` file. You will use mongoDB to locate the specific file and update or remove, to update you will do `findByIdAndUpdate()` and `findByIdAndRemove()`
 
@@ -356,11 +358,11 @@ router.put("/:id", (req, res) => {
 
 Test it wit Curl: `curl -X PUT -H "Content-Type: application/json" -d '{"description":"I updated this","complete":true}' http://localhost:3000/todos/58f7a4fd26b1a345e9281cb8`
 
-## Create the create todos form
+## Create todos form
 
 Since we already created our POST request our backend is ready with our app.post route now we can create a form in react to feed our back-end
 
-#### The form will contain a handleChange and handleSubmit events 
+#### The form will contain a handleChange and handleSubmit events
 
     handleChange(): Will handle the changes in the form, by setting the state to the value typed by the user
 
