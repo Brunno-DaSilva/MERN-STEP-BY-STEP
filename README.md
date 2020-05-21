@@ -402,3 +402,45 @@ Add the button in Map
   };
 
 ```
+
+## Refactoring our app so it is more realistic with separation of concerns
+
+Always looking for a clean easy to read component when developing React Applications. Once your component starts to look crowded try to break it into two components by separating concerns.
+
+To illustrate this concept, we will be adding a new functional component called `ToDoItem`, by moving our `<li>` inside our new component, and by passing props we will achieve the same end result with a cleaner approach.
+
+New Component:
+
+```
+const ToDoItem = (props) => {
+  return (
+    <li>
+      {props.todo.description}
+      <button onClick={() => props.deleteTodo(props.todo._id, props.index)}>
+        Delete
+      </button>
+    </li>
+  );
+};
+
+```
+
+The refactored map() with ToDoItem and its props:
+
+```
+<ul>
+  {this.state.todos.length > 0 &&
+       this.state.todos.map((todo, index) => {
+    return (
+           <ToDoItem
+             todo={todo}
+             index={index}
+             deleteTodo={this.deleteTodo}
+           />
+          );
+     })}
+</ul>
+
+```
+
+## Next: Let's create the Update Todos

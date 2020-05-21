@@ -1,6 +1,18 @@
+const ToDoItem = (props) => {
+  return (
+    <li>
+      {props.todo.description}
+      <button onClick={() => props.deleteTodo(props.todo._id, props.index)}>
+        Delete
+      </button>
+    </li>
+  );
+};
+
 class App extends React.Component {
   state = {
     todos: [],
+    description: "",
   };
 
   componentDidMount() {
@@ -8,20 +20,17 @@ class App extends React.Component {
   }
 
   getData = () => {
-    fetch("http://localhost:3000/todos")
+    fetch("/todos")
       .then((response) => response.json())
       .then((data) => this.setState({ todos: data }));
   };
 
-  handleChange = () => {
-    this.setState({
-      [event.target.id]: event.target.value,
-    });
+  handleChange = (event) => {
+    this.setState({ [event.target.id]: event.target.value });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     fetch("/todos", {
       body: JSON.stringify({ description: this.state.description }),
       method: "POST",
@@ -39,10 +48,10 @@ class App extends React.Component {
       });
   };
 
-  deleteToDo = (id, index) => {
-    fetch("todos/" + id, {
+  deleteTodo = (id, index) => {
+    fetch(`/todos/${id}`, {
       method: "DELETE",
-    }).then((data) => {
+    }).then((response) => {
       this.setState({
         todos: [
           ...this.state.todos.slice(0, index),
@@ -55,10 +64,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <h1>React is Running</h1>
+        <h1>My To Do List</h1>
         <button onClick={this.getData}>Get Todos</button>
-
-        {/* Add a form to create Todos  */}
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="description">Description</label>
           <input
@@ -69,17 +76,15 @@ class App extends React.Component {
           />
           <input type="submit" />
         </form>
-
         <ul>
-          {this.state.todos.length > 1 &&
+          {this.state.todos.length > 0 &&
             this.state.todos.map((todo, index) => {
               return (
-                <li>
-                  {todo.description}
-                  <button onClick={() => this.deleteToDo(todo._id, index)}>
-                    Delete
-                  </button>
-                </li>
+                <ToDoItem
+                  todo={todo}
+                  index={index}
+                  deleteTodo={this.deleteTodo}
+                />
               );
             })}
         </ul>
