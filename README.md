@@ -288,6 +288,8 @@ router.delete("/:id", (req, res) => {
 
 ```
 
+Test it wit Curl: `curl -X DELETE http://localhost:3000/todos/58f79d490708714536c02474`
+
 ```
 //==========
 //Update
@@ -303,6 +305,8 @@ router.put("/:id", (req, res) => {
   );
 });
 ```
+
+Test it wit Curl: `curl -X PUT -H "Content-Type: application/json" -d '{"description":"I updated this","complete":true}' http://localhost:3000/todos/58f7a4fd26b1a345e9281cb8`
 
 ## Create the create todos form
 
@@ -356,4 +360,45 @@ Since we already created our POST request our backend is ready with our app.post
           />
           <input type="submit" />
         </form>
+```
+
+## Delete Todos
+
+Add a button inside our `map()`and name it delete or something meaningful. Also, add an `onClick()` event to the button. At this point you want to `this.deleteTodo()` that will take two parameters the `todo_id` and `index` of the current value being mapped.
+
+Then, we define the `deleteToDo` method above our `Render()` by fetching the exact route, passing the second argument `method:` as `DELETE` and generating a promise that will update the state of your app by slicing the specific item generating a new array with all the items prior and after our target item.
+
+Add the button in Map
+
+```
+<ul>
+{this.state.todos.length > 1 &&
+  this.state.todos.map((todo, index) => {
+    return (
+      <li>
+        {todo.description}
+        <button onClick={() => this.deleteToDo(todo._id, index)}>
+          Delete
+        </button>
+      </li>
+    );
+  })}
+</ul>
+
+```
+
+```
+  deleteToDo = (id, index) => {
+    fetch("todos/" + id, {
+      method: "DELETE",
+    }).then((data) => {
+      this.setState({
+        todos: [
+          ...this.state.todos.slice(0, index),
+          ...this.state.todos.slice(index + 1),
+        ],
+      });
+    });
+  };
+
 ```

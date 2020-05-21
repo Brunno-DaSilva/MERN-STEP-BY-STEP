@@ -39,6 +39,19 @@ class App extends React.Component {
       });
   };
 
+  deleteToDo = (id, index) => {
+    fetch("todos/" + id, {
+      method: "DELETE",
+    }).then((data) => {
+      this.setState({
+        todos: [
+          ...this.state.todos.slice(0, index),
+          ...this.state.todos.slice(index + 1),
+        ],
+      });
+    });
+  };
+
   render() {
     return (
       <div>
@@ -59,8 +72,15 @@ class App extends React.Component {
 
         <ul>
           {this.state.todos.length > 1 &&
-            this.state.todos.map((todo) => {
-              return <li>{todo.description}</li>;
+            this.state.todos.map((todo, index) => {
+              return (
+                <li>
+                  {todo.description}
+                  <button onClick={() => this.deleteToDo(todo._id, index)}>
+                    Delete
+                  </button>
+                </li>
+              );
             })}
         </ul>
       </div>
