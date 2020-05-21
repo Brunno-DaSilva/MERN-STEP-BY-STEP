@@ -303,3 +303,56 @@ router.put("/:id", (req, res) => {
   );
 });
 ```
+
+## Create the create todos form
+
+Since we already created our POST request our backend is ready with our app.post route now we can create a form in react to feed our back-end
+
+#### The form will contain a handleChange and handleSubmit events 
+
+    handleChange: I'll handle the changes in the form
+    handleSubmit: will get the data changed and send it to the backend
+
+```
+  handleChange = () => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  };
+```
+
+```
+  handleSubmit = (event) => {
+    event.preventDefault();
+    fetch("/todos", {
+      body: JSON.stringify({ description: this.state.description }),
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((newTodo) => {
+        this.setState({
+          todos: [newTodo, ...this.state.todos],
+          description: "",
+        });
+      });
+  };
+
+```
+
+```
+  {/* Add a form to create Todos  */}
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="description">Description</label>
+          <input
+            type="text"
+            value={this.state.description}
+            id="description"
+            onChange={this.handleChange}
+          />
+          <input type="submit" />
+        </form>
+```
