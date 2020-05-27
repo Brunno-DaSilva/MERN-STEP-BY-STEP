@@ -11,7 +11,7 @@ const ToDoItem = (props) => {
     // </li>
     <tr className={props.todo.complete ? "complete" : ""}>
       <td className="todoItem">{props.todo.description}</td>
-      <td>
+      <td className="align-td-center">
         <button
           className="table__btn-checked"
           onClick={() => props.updateToDo(props.todo)}
@@ -23,7 +23,7 @@ const ToDoItem = (props) => {
           )}
         </button>
       </td>
-      <td>
+      <td className="align-td-center">
         <button
           className="table__btn-delete"
           onClick={() => props.deleteTodo(props.todo._id, props.index)}
@@ -160,10 +160,8 @@ class App extends React.Component {
                 <i className="fas fa-clipboard-list"> </i> Task Name
               </th>
               <th className="table-title">
-                <i className="fas fa-calendar-check"> </i> Is Completed
-              </th>
-              <th className="table-title">
-                <i className="fas fa-trash"></i> Delete
+                <i className="fas fa-calendar-check"></i>{" "}
+                <i className="fas fa-trash"></i> Action
               </th>
             </tr>
 

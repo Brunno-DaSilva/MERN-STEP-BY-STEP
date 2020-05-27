@@ -254,13 +254,15 @@ input[type="submit"] {
   background: transparent;
   border: 1px solid var(--dark-gray-color);
   border-radius: 4px;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
+  transition: all 0.5s;
 }
 
 input[type="submit"]:hover {
   color: var(--main-gold-details);
+  background-color: #ffffff;
   cursor: pointer;
 }
 
@@ -271,6 +273,7 @@ input[type="submit"]:hover {
   flex-direction: row;
   width: 74vw;
   margin: 1rem;
+  margin-top: 3rem;
   padding: 1.5rem;
 }
 
@@ -285,6 +288,21 @@ table th {
   border: 1px solid #ddd;
   padding: 8px;
   border-radius: 4px;
+}
+
+.table-title {
+  margin-left: 0.2rem;
+  font-size: 1.2rem;
+}
+.table-title i {
+  margin: 0 0.5rem;
+}
+
+.align-td-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 table tr:nth-child(even) {
@@ -305,6 +323,7 @@ table th {
 .todoItem a {
   text-decoration: none;
   color: var(--dark-gray-color);
+  font-size: 1.5rem;
 }
 .table__form-delete {
   width: 2vw;
@@ -320,11 +339,12 @@ table th {
   background-color: transparent;
 }
 .table__btn-delete i {
-  color: #8b0808;
+  color: #c4c2c2;
+  transition: all 0.5s;
 }
 .table__btn-delete i:hover {
   cursor: pointer;
-  color: #f7442d;
+  color: #d4321d;
 }
 
 /*//////////////////////////////////
@@ -336,13 +356,12 @@ table th {
 }
 
 .gray {
-  color: #dbdbdb;
-  transition: all 1s;
-  border: 1px solid #c4c2c2;
+  color: #c4c2c2;
+  transition: all 0.5s;
   border-radius: 50%;
 }
 
 .gray:hover {
   cursor: pointer;
-  color: #c4c2c2;
+  color: green;
 }
