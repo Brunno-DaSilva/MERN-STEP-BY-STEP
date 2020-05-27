@@ -567,3 +567,5 @@ Now lets created a new button in our `ToDoItem` component that will toggle
 ### Add Some Style
 
 Now Let's add some style
+
+<img src="images/todoMockup.png" width="100%" >
