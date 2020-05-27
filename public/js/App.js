@@ -1,16 +1,9 @@
 const ToDoItem = (props) => {
   return (
-    // <li>
-    //   <div className={props.todo.complete ? "complete" : ""}>
-    //     {props.todo.description}
-    //   </div>
-    //   <button onClick={() => props.deleteTodo(props.todo._id, props.index)}>
-    //     Delete
-    //   </button>
-    //   <button onClick={() => props.updateToDo(props.todo)}>Complete</button>
-    // </li>
     <tr className={props.todo.complete ? "complete" : ""}>
-      <td className="todoItem">{props.todo.description}</td>
+      <td className="todoItem">
+        <p className="todo-description">{props.todo.description}</p>
+      </td>
       <td className="align-td-center">
         <button
           className="table__btn-checked"
@@ -133,7 +126,7 @@ class App extends React.Component {
               </a>
             </li>
             <li>
-              <a href="http://www.bruno-dasilva.com/">
+              <a href="http://www.bruno-dasilva.com/" target="_blank">
                 <i className="fas fa-cookie-bite"></i>
               </a>
             </li>
@@ -141,6 +134,9 @@ class App extends React.Component {
         </div>
 
         <div class="main_content">
+          <div className="main-app-title">
+            <h1>MERN Todo App</h1>
+          </div>
           <form id="add-todo" onSubmit={this.handleSubmit}>
             <label htmlFor="description">Description</label>
 
@@ -177,20 +173,6 @@ class App extends React.Component {
                 );
               })}
           </table>
-
-          {/* <ul>
-            {this.state.todos.length > 0 &&
-              this.state.todos.map((todo, index) => {
-                return (
-                  <ToDoItem
-                    todo={todo}
-                    index={index}
-                    deleteTodo={this.deleteTodo}
-                    updateToDo={this.updateToDo}
-                  />
-                );
-              })}
-          </ul> */}
         </div>
       </div>
     );
