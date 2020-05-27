@@ -24,13 +24,17 @@ MERN is a full-stack web development framework, composed of four technologies Mo
 
 `ReactJS`: It is a library created by Facebook. It is used to build UI components that create the user interface of the single page web application.
 
+#### Why MERN stack ?
+
+Mainly because this stack is completed composed utilizing the JavaScript language, most code you are writing from back to front is javaScript.
+
 [More info can be found here: ](https://www.educative.io/edpresso/what-is-mern-stack)
 
-Create a repository
-`mkdir mern-app`
-`cd mern-app`
+### Create a repository
 
-`touch server.js`
+`mkdir mern-app`
+
+`touch mern-app/server.js`
 `npm init -y`
 `npm install express mongoose --save`
 
