@@ -43,14 +43,9 @@ router.delete("/:id", (req, res) => {
 //==========
 
 router.put("/:id", (req, res) => {
-  Todos.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedTodo) => {
-      res.json(updatedTodo);
-    }
-  );
+  Todos.findByIdAndUpdate(req.params.id, req.body, (err, updatedTodo) => {
+    res.json(updatedTodo);
+  });
 });
 
 module.exports = router;

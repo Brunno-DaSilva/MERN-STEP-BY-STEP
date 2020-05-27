@@ -2,8 +2,13 @@
 
 ### Summary
 
-Todo App with MERN stack. Learn MERN by using this step-by-step guide where we will be building a MERN full-stack Todo app with `React CDN` for simplicity, however, you could use this backend as model to any front-end interface, such as Mobile, create-react-app, or other front-end framework, as we will be separating the concerns with our back-end 100% autonomous. This is meant to beginners as an exercise project.
+Step-by-step guide on how to build a simple MERN stack application. We will be building a MERN full-stack Todo app with `React CDN` for simplicity, however, you could use this backend as model to any front-end interface, as our back-end is 100% autonomous.
 
+This is meant for beginners as an exercise project.
+
+## Let's start
+
+Create a repository
 `mkdir mern-app`
 `cd mern-app`
 
@@ -342,17 +347,13 @@ Test it wit Curl: `curl -X DELETE http://localhost:3000/todos/58f79d490708714536
 
 ```
 //==========
-//Update
+// Update
 //==========
-router.put("/:id", (req, res) => {
-  Todos.findByIdAndUpdate(
-    req.params.id,
-    req.body,
-    { new: true },
-    (err, updatedTodo) => {
-      res.json(updatedTodo);
-    }
-  );
+
+router.put("/:id", (req, res) => {
+  Todos.findByIdAndUpdate(req.params.id, req.body, (err, updatedTodo) => {
+    res.json(updatedTodo);
+  });
 });
 ```
 
@@ -493,4 +494,52 @@ The refactored map() with ToDoItem and its props:
 
 ```
 
-## Next: Let's create the Update Todos
+## Update Portion
+
+### Refactoring our ToDoItem functional component
+
+First let's refactor the `ToDoItem()` component so we will surround the `props.todo.description` and add a ternary conditional that will add a class if `props.todo.complete` is set to true
+
+### Add Some Style
+
+### Code the Update Method
+
+In the `updateToDo` method, we will change the value of our `todo.complete` to be the exact opposite of it's current state, therefore we type the (isNOt) represented by the `!` in front of the word `todo.complete`. Next we will fetch the data from our controller Update Route by using a fetch API call.
+
+Furthermore, once the item is updated, we will use a promise and pass our `getData()` created previously.
+
+```
+updateToDo = (todo) => {
+    todo.complete = !todo.complete;
+    fetch(`todos/${todo._id}`, {
+      body: JSON.stringify(todo),
+      method: "PUT",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        this.getData();
+      });
+  };
+
+```
+
+So App is the highest component in our application, also it is where our state is managed, therefore, our update method will be placed in App.js and we will pass it down to the appropriate component, in our case the ToDoItem Component.
+
+```
+<ToDoItem
+todo={todo}
+index={index}
+deleteTodo={this.deleteTodo}
+updateToDo={this.updateToDo}
+/>
+```
+
+Now lets created a new button in our `ToDoItem` component that will toggle
+
+```
+<button onClick={() => props.updateToDo(props.todo)}>Complete</button>
+```
