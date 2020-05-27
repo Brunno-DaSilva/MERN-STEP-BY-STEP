@@ -1,14 +1,37 @@
 const ToDoItem = (props) => {
   return (
-    <li>
-      <div className={props.todo.complete ? "complete" : ""}>
-        {props.todo.description}
-      </div>
-      <button onClick={() => props.deleteTodo(props.todo._id, props.index)}>
-        Delete
-      </button>
-      <button onClick={() => props.updateToDo(props.todo)}>Complete</button>
-    </li>
+    // <li>
+    //   <div className={props.todo.complete ? "complete" : ""}>
+    //     {props.todo.description}
+    //   </div>
+    //   <button onClick={() => props.deleteTodo(props.todo._id, props.index)}>
+    //     Delete
+    //   </button>
+    //   <button onClick={() => props.updateToDo(props.todo)}>Complete</button>
+    // </li>
+    <tr className={props.todo.complete ? "complete" : ""}>
+      <td className="todoItem">{props.todo.description}</td>
+      <td>
+        <button
+          className="table__btn-checked"
+          onClick={() => props.updateToDo(props.todo)}
+        >
+          {props.todo.complete ? (
+            <i className="fas fa-check fa-2x complete "></i>
+          ) : (
+            <i className="fas fa-circle fa-2x gray"></i>
+          )}
+        </button>
+      </td>
+      <td>
+        <button
+          className="table__btn-delete"
+          onClick={() => props.deleteTodo(props.todo._id, props.index)}
+        >
+          <i className="fas fa-trash fa-2x"></i>
+        </button>
+      </td>
+    </tr>
   );
 };
 
@@ -80,6 +103,7 @@ class App extends React.Component {
         this.getData();
       });
   };
+
   render() {
     return (
       <div className="wrapper">
@@ -97,9 +121,11 @@ class App extends React.Component {
               </a>
             </li>
             <li>
-              <a href="#">
-                <i className="fas fa-plus"></i>
-              </a>
+              <button className="sidebar-button" onClick={this.getData}>
+                <a href="#">
+                  <i className="fas fa-plus"></i>
+                </a>
+              </button>
             </li>
             <li>
               <a href="#">
@@ -115,18 +141,32 @@ class App extends React.Component {
         </div>
 
         <div class="main_content">
-          <button onClick={this.getData}>Get Todos</button>
-          <form onSubmit={this.handleSubmit}>
+          <form id="add-todo" onSubmit={this.handleSubmit}>
             <label htmlFor="description">Description</label>
+
             <input
               type="text"
               value={this.state.description}
               id="description"
               onChange={this.handleChange}
             />
+
             <input type="submit" />
           </form>
-          <ul>
+
+          <table id="table-sm">
+            <tr>
+              <th className="table-title">
+                <i className="fas fa-clipboard-list"> </i> Task Name
+              </th>
+              <th className="table-title">
+                <i className="fas fa-calendar-check"> </i> Is Completed
+              </th>
+              <th className="table-title">
+                <i className="fas fa-trash"></i> Delete
+              </th>
+            </tr>
+
             {this.state.todos.length > 0 &&
               this.state.todos.map((todo, index) => {
                 return (
@@ -138,7 +178,21 @@ class App extends React.Component {
                   />
                 );
               })}
-          </ul>
+          </table>
+
+          {/* <ul>
+            {this.state.todos.length > 0 &&
+              this.state.todos.map((todo, index) => {
+                return (
+                  <ToDoItem
+                    todo={todo}
+                    index={index}
+                    deleteTodo={this.deleteTodo}
+                    updateToDo={this.updateToDo}
+                  />
+                );
+              })}
+          </ul> */}
         </div>
       </div>
     );
