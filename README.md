@@ -568,11 +568,46 @@ Now lets created a new button in our `ToDoItem` component that will toggle
 
 Now Let's add some style. Feel free to choose your own style and color pallet, however, I have put these three wireframes and color pallets that I come up with, feel free to use it or add your own. Pro tip: I usually pick two main colors and use some small variation of the main colors and add those to any contrast element.
 
-Design One:
+##### Design One:
+
 <img src="images/DesignOne.png" width="100%" >
 
-Design Two:
+Color Pallet:
+
+```
+    #3aafa9
+    #2b7a78
+    #def2f1
+    #545454
+    #c7c9cd
+    #ffffff
+```
+
+##### Design Two:
+
 <img src="images/DesignTwo.png" width="100%" >
 
-Design Three:
+Color Pallet:
+
+```
+    #5d5174
+    #9680a4
+    #e2deea
+    #545454
+    #e4e0dd
+    #ffffff
+```
+
+##### Design Three:
+
 <img src="images/DesignThree.png" width="100%" >
+
+Color Pallet:
+
+```
+    #545454
+    #edecec
+    #e4e0dd
+    #c8dbf8
+    #ffffff
+```
