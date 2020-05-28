@@ -570,7 +570,7 @@ Now Let's add some style. Feel free to choose your own style and color pallet, h
 
 Pro tip: I usually pick two main colors and use some small variation of the main colors and add those to any contrast element.
 
-##### Design One:
+#### Design One:
 
 <img src="images/DesignOne.png" width="100%" >
 
@@ -585,7 +585,7 @@ Color Pallet:
     #ffffff
 ```
 
-##### Design Two:
+#### Design Two:
 
 <img src="images/DesignTwo.png" width="100%" >
 
@@ -600,7 +600,7 @@ Color Pallet:
     #ffffff
 ```
 
-##### Design Three:
+#### Design Three:
 
 <img src="images/DesignThree.png" width="100%" >
 
