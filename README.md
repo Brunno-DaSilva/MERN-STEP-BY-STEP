@@ -566,7 +566,9 @@ Now lets created a new button in our `ToDoItem` component that will toggle
 
 ### Add Some Style
 
-Now Let's add some style. Feel free to choose your own style and color pallet, however, I have put these three wireframes and color pallets that I come up with, feel free to use it or add your own. Pro tip: I usually pick two main colors and use some small variation of the main colors and add those to any contrast element.
+Now Let's add some style. Feel free to choose your own style and color pallet, however, I have put these three wireframes and color pallets that I come up with, feel free to use it or add your own. Sometimes in the real world you will get a design from the Design department or your by the Product/project owner. Maybe using one of my suggested Designs in a way of practicing this concept.
+
+Pro tip: I usually pick two main colors and use some small variation of the main colors and add those to any contrast element.
 
 ##### Design One:
 
