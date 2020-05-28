@@ -566,6 +566,13 @@ Now lets created a new button in our `ToDoItem` component that will toggle
 
 ### Add Some Style
 
-Now Let's add some style
+Now Let's add some style. Feel free to choose your own style and color pallet, however, I have put these three wireframes and color pallets that I come up with, feel free to use it or add your own. Pro tip: I usually pick two main colors and use some small variation of the main colors and add those to any contrast element.
 
-<img src="images/todoMockup.png" width="100%" >
+Design One:
+<img src="images/DesignOne.png" width="100%" >
+
+Design Two:
+<img src="images/DesignTwo.png" width="100%" >
+
+Design Three:
+<img src="images/DesignThree.png" width="100%" >
