@@ -24,7 +24,9 @@ MERN is a full-stack web development framework, composed of four technologies Mo
 
 `ReactJS`: It is a library created by Facebook. It is used to build UI components that create the user interface of the single page web application.
 
-#### Why MERN stack ?
+<img src="images/MERN.png" width="100%" >
+
+#### Why MERN stack?
 
 Mainly because this stack is completed composed utilizing the JavaScript language, most code you are writing from back to front is javaScript.
 
