@@ -668,7 +668,7 @@ Access your account dashboard at [https://dashboard.heroku.com/apps](https://das
 
 Click on the `New` dropdown button and select `Create new app`
 
-<img src="images/NewAppOne.jpg" width="80%" >
+<img src="images/NewAppOne.jpg" width="60%" >
 
 Add a unique name to your app and click on the `create app` button
 
