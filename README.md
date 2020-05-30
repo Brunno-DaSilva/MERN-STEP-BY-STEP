@@ -691,7 +691,9 @@ A modal will display.
 Under the `Plan name` Select the Free version called `Sandbox - Free`
 Click on the button `Provision`
 
-##### Please note that any other sandbox version will cost you money
+```diff
+- Please note that any other sandbox version will cost you money
+```
 
 <img src="images/mLabTwo.jpg" width="80%" >
 
