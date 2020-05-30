@@ -615,3 +615,85 @@ Color Pallet:
     #c8dbf8
     #ffffff
 ```
+
+## Heroku Deployment
+
+#### Initial Heroku Set Up
+
+Access Heroku and [create a new account ](https://signup.heroku.com/)
+
+Install Heroku CLI Tools [CLI Tools](https://devcenter.heroku.com/articles/heroku-cli)
+
+Heroku CLI will allow you to access terminal commands to heroku, such as `heroku login`
+
+Type `heroku login` anywhere in your terminal
+
+Follow prompts to sync your Heroku account with your computer
+
+#### Create a New App on Heroku
+
+Access your account dashboard at [https://dashboard.heroku.com/apps](https://dashboard.heroku.com/apps)
+
+Click on the `New` dropdown button and select `Create new app`
+
+<img src="images/NewAppOne.jpg" width="100%" >
+
+Add a unique name to your app and click on the `create app` button
+
+<img src="images/NewAppTwo.jpg" width="100%" >
+
+### Before we deploy the app Let's add a addon that is Heroku's version of MongoDB
+
+This addon is called MongoLab. MongoLab as I mentioned is a Heroku's version of MongoDB and it make sure our application runs as expected.
+
+#### Important
+
+```
+MongoLab is a free addon for as long as you choose the FREE version. You will be required to add your credit card. So, just make sure you got the FREE version!
+
+```
+
+Click on the Resource Tab
+Under the Add-ons section search for mLab MongoDB
+
+<img src="images/mLabOne.jpg" width="100%" >
+
+A modal will display.
+Under the `Plan name` Select the Free version called `Sandbox - Free`
+Click on the button Provision
+
+##### Please note that any other sandbox version will cost you money
+
+<img src="images/mLabTwo.jpg" width="100%" >
+
+#### Initialize Heroku repo
+
+Now let's change focus to the `Deploy` tab
+
+At this point if you do not have a GitHub repo created, just run `git init` If you already have a repo created you can skip this previous step.
+
+Now we can set heroku as a remote repo
+
+`$ heroku git:remote -a todo-app-with-mern-stack`
+
+#### Important: Make sure you have a .gitignore file and add node_modules to it, like shown below:
+
+```
+node_modules
+/node_modules
+*node_modules
+
+```
+
+#### Now run git add, commit, and push to heroku master
+
+Notice that we are not pushing it to the origin master although we do have an origin (representing our GitHub repo), we are changing focus to the heroku master
+
+```
+git add .
+git commit -m "Pushing my app to Heroku "
+git push heroku master
+
+```
+
+It can take a minute. Once it is completed, you can type `heroku open`
