@@ -696,3 +696,5 @@ git push heroku master
 ```
 
 It can take a minute. Once it is completed, you can type `heroku open` You should be able to see your app deployed.
+
+Demo: Coming Soon
