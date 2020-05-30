@@ -101,13 +101,18 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <div className="sidebar">
+          <label id="hamburger" for="toggle">
+            &#9776;
+          </label>
+          <input type="checkbox" id="toggle" />
+
           <div className="logo">
             <img
               src="https://res.cloudinary.com/duprwuo4j/image/upload/v1574831158/imgs_starwars/imgs/BLOGO_k36v5y.png"
               alt="logo"
             />
           </div>
-          <ul>
+          <ul class="hide-menu">
             <li>
               <a href="#">
                 <i className="fas fa-home"></i>
@@ -157,7 +162,7 @@ class App extends React.Component {
               </th>
               <th className="table-title">
                 <i className="fas fa-calendar-check"></i>{" "}
-                <i className="fas fa-trash"></i> Action
+                <i className="fas fa-trash"></i> <span>Action</span>
               </th>
             </tr>
 

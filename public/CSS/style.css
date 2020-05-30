@@ -71,11 +71,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.5s;
 }
 
 .wrapper .sidebar ul li a {
   color: var(--gray-light-green);
   display: block;
+  transition: all 0.5s;
 }
 
 .sidebar-button {
@@ -281,7 +283,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
   color: var(--main-gold-details);
   background-color: #ffffff;
-  cursor: pointer;
 }
 
 /*New todo form*/
@@ -293,6 +294,7 @@ input[type="submit"]:hover {
   margin: 1rem;
   margin-top: 3rem;
   padding: 1.5rem;
+  border-radius: 4px;
 }
 #add-todo label {
   font-size: 1.4rem;
@@ -388,4 +390,91 @@ table th {
 .gray:hover {
   cursor: pointer;
   color: green;
+}
+
+#hamburger {
+  margin: 0 2.3rem;
+  font-size: 1.5rem;
+  color: #eaeaeb;
+  line-height: 7rem;
+  display: none;
+}
+#toggle {
+  display: none;
+}
+
+/*MEDIA QUERY*/
+
+@media only screen and (max-width: 800px) {
+  .wrapper .sidebar {
+    width: 100px;
+    height: 100%;
+    padding: 10px 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .wrapper .main_content {
+    width: 100%;
+    margin-left: 100px;
+    background-color: var(--body-bg);
+  }
+
+  .main-app-title {
+    margin: 3rem;
+  }
+
+  .main_content .main-app-title h1 {
+    font-size: 2rem;
+    color: #a8a8a8;
+    letter-spacing: 0.1rem;
+  }
+
+  #add-todo label {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  input[type="submit"] {
+    margin-left: 1.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+  }
+
+  .table-title {
+    margin-left: 0.2rem;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .table-title span {
+    display: none;
+  }
+
+  .todo-description {
+    font-size: 1rem;
+    letter-spacing: 2px;
+  }
+
+  #hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hide-menu {
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+
+  .wrapper .sidebar .logo img {
+    display: none;
+  }
+
+  .hide-menu li a {
+    display: block;
+  }
+
+  #toggle:checked ~ .hide-menu {
+    display: block;
+  }
 }
