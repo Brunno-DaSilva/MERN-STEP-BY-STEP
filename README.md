@@ -648,19 +648,16 @@ This addon is called MongoLab. MongoLab as I mentioned is a Heroku's version of 
 
 #### Important
 
-```
-MongoLab is a free addon for as long as you choose the FREE version. You will be required to add your credit card. So, just make sure you got the FREE version!
+MongoLab is a free addon for as long as you choose the `FREE` version. You will be required to add your credit card. So, just make sure you got the `FREE` version!
 
-```
-
-Click on the Resource Tab
-Under the Add-ons section search for mLab MongoDB
+Click on the `Resource` Tab
+Under the `Add-ons` section search for `mLab MongoDB`
 
 <img src="images/mLabOne.jpg" width="100%" >
 
 A modal will display.
 Under the `Plan name` Select the Free version called `Sandbox - Free`
-Click on the button Provision
+Click on the button `Provision`
 
 ##### Please note that any other sandbox version will cost you money
 
@@ -676,7 +673,9 @@ Now we can set heroku as a remote repo
 
 `$ heroku git:remote -a todo-app-with-mern-stack`
 
-#### Important: Make sure you have a .gitignore file and add node_modules to it, like shown below:
+#### Important:
+
+`Make sure you have a .gitignore file and add node_modules to it, like shown below:`
 
 ```
 node_modules
@@ -685,9 +684,9 @@ node_modules
 
 ```
 
-#### Now run git add, commit, and push to heroku master
+#### Now run git add, commit, and push it to heroku master
 
-Notice that we are not pushing it to the origin master although we do have an origin (representing our GitHub repo), we are changing focus to the heroku master
+Notice that we are not pushing it to the origin master although we do have an origin (representing our GitHub repo), we are changing focus to the `heroku master`
 
 ```
 git add .
@@ -696,4 +695,4 @@ git push heroku master
 
 ```
 
-It can take a minute. Once it is completed, you can type `heroku open`
+It can take a minute. Once it is completed, you can type `heroku open` You should be able to see your app deployed.
