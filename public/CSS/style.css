@@ -295,6 +295,7 @@ input[type="submit"]:hover {
   margin-top: 3rem;
   padding: 1.5rem;
   border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 #add-todo label {
   font-size: 1.4rem;
