@@ -548,7 +548,7 @@ The refactored map() with ToDoItem and its props:
 
 ### Refactoring our ToDoItem functional component
 
-First, let's refactor the `ToDoItem()` component so we will surround the `props.todo.description` and add a ternary conditional that will add a class if `props.todo.complete` is set to true
+First, let's refactor the `ToDoItem()` component, therefore, we will surround the `props.todo.description` and add a ternary conditional operator that will add a class if `props.todo.complete` is set to true
 
 ### Code the Update Method
 
@@ -575,7 +575,7 @@ updateToDo = (todo) => {
 
 ```
 
-So `App` is the highest component in our application, also it is where our state is managed, therefore, our update method will be placed in App.js and we will pass it down to the appropriate component, in our case the ToDoItem Component.
+We know that `App` is the highest component in our application, also it is the location that our state is managed, therefore, our update method will be placed in `App.js` and it will be passed down to the appropriate component, in our case, we are looking for the `ToDoItem` component.
 
 ```
 <ToDoItem
@@ -586,11 +586,14 @@ updateToDo={this.updateToDo}
 />
 ```
 
-Now lets created a new button in our `ToDoItem` component that will toggle
+Now let's create a new button in our `ToDoItem` component that will toggle
 
 ```
 <button onClick={() => props.updateToDo(props.todo)}>Complete</button>
+
 ```
+
+After I styled my app, I decided to make my update to change a fontawesome icon from a gray circle ⚪ to a `check mark` ✔️ if the `props.todo.complete` is true. You can accomplish it by using a ternary operator.
 
 **[⬆ Back to Top](#summary)**
 
@@ -647,6 +650,8 @@ Color Pallet:
 ```
 
 **[⬆ Back to Top](#summary)**
+
+---
 
 ## Heroku Deployment
 
