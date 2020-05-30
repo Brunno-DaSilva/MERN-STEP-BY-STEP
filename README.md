@@ -28,7 +28,7 @@ MERN is a full-stack web development framework, composed of four technologies Mo
 
 `ReactJS`: It is a library created by Facebook. It is used to build UI components that create the user interface of the single page web application.
 
-<img src="images/MERN.png" width="100%" >
+<img src="images/MERN.png" width="80%" >
 
 #### Why MERN stack?
 
@@ -604,7 +604,7 @@ Sometimes in a real-world scenario, you would get a design sheet directly from y
 
 #### Design One:
 
-<img src="images/DesignOne.png" width="100%" >
+<img src="images/DesignOne.png" width="80%" >
 
 Color Pallet:
 
@@ -619,7 +619,7 @@ Color Pallet:
 
 #### Design Two:
 
-<img src="images/DesignTwo.png" width="100%" >
+<img src="images/DesignTwo.png" width="80%" >
 
 Color Pallet:
 
@@ -634,7 +634,7 @@ Color Pallet:
 
 #### Design Three:
 
-<img src="images/DesignThree.png" width="100%" >
+<img src="images/DesignThree.png" width="80%" >
 
 Color Pallet:
 
@@ -668,11 +668,11 @@ Access your account dashboard at [https://dashboard.heroku.com/apps](https://das
 
 Click on the `New` dropdown button and select `Create new app`
 
-<img src="images/NewAppOne.jpg" width="100%" >
+<img src="images/NewAppOne.jpg" width="80%" >
 
 Add a unique name to your app and click on the `create app` button
 
-<img src="images/NewAppTwo.jpg" width="100%" >
+<img src="images/NewAppTwo.jpg" width="80%" >
 
 ### Before we deploy the app Let's add an addon that is Heroku's version of MongoDB
 
@@ -685,7 +685,7 @@ MongoLab is a free addon for as long as you choose the `FREE` version. You will 
 Click on the `Resource` Tab
 Under the `Add-ons` section search for `mLab MongoDB`
 
-<img src="images/mLabOne.jpg" width="100%" >
+<img src="images/mLabOne.jpg" width="80%" >
 
 A modal will display.
 Under the `Plan name` Select the Free version called `Sandbox - Free`
@@ -693,7 +693,7 @@ Click on the button `Provision`
 
 ##### Please note that any other sandbox version will cost you money
 
-<img src="images/mLabTwo.jpg" width="100%" >
+<img src="images/mLabTwo.jpg" width="80%" >
 
 #### Initialize Heroku repo
 
