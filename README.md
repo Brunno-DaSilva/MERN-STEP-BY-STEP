@@ -401,6 +401,8 @@ router.put("/:id", (req, res) => {
 
 ```
 
+**[⬆ Back to Top](#summary)**
+
 ##### Use curl to test it out:
 
 `curl -X PUT -H "Content-Type: application/json" -d '{"description":"I updated this","complete":true}' http://localhost:3000/todos/58f7a4fd26b1a345e9281cb8`
