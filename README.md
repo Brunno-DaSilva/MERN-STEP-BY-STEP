@@ -71,7 +71,7 @@ const PORT = process.env.PORT || 3000;
 
 ### Make the connection with MongoDB
 
-Set the the mongoURI pass the mongoDB parser and if the connection is successful log a message.
+Set the mongoURI by passing it as the first parameter in the mongoose.connect, as a second parameter pass the mongoDB parser and if the connection is successful log a message.
 
 ```
 //=============================
