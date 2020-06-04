@@ -58,7 +58,7 @@ const mongoose = require("mongoose");
 
 ### Add environment variables and set the App to Heroku deployment
 
-Setting the `process.env.PORT || localPortNumber` will ensure that your application will no matter what environment it is being connected, whether it is Heroku `process.env.PORT` or it is in your local machine `localPortNumber`
+Setting the `process.env.PORT || localPortNumber` will ensure that your application will run no matter what environment it is being connected, whether it is Heroku `process.env.PORT` or it is in your local machine `localPortNumber`
 
 ```
 //=============================
