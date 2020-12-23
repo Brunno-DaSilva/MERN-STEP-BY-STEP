@@ -130,7 +130,7 @@ class App extends React.Component {
                 <i className="fas fa-users"></i>
               </a>
             </li>
-            <li>
+            <li title="Access my Portfolio">
               <a href="http://www.bruno-dasilva.com/" target="_blank">
                 <i className="fas fa-cookie-bite"></i>
               </a>
