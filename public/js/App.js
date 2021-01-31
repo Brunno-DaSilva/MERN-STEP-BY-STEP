@@ -120,18 +120,30 @@ class App extends React.Component {
             </li>
             <li>
               <button className="sidebar-button" onClick={this.getData}>
-                <a href="#">
+                <a
+                  href="https://www.linkedin.com/in/bruno-dasilva/"
+                  target="_blank"
+                  title="Bruno DaSilva LinkedIn"
+                >
                   <i className="fas fa-plus"></i>
                 </a>
               </button>
             </li>
             <li>
-              <a href="#">
+              <a
+                href="https://github.com/Brunno-DaSilva"
+                target="_blank"
+                title="Bruno DaSilva GitHub"
+              >
                 <i className="fas fa-users"></i>
               </a>
             </li>
             <li title="Access my Portfolio">
-              <a href="http://www.bruno-dasilva.com/" target="_blank">
+              <a
+                href="http://www.bruno-dasilva.com/"
+                target="_blank"
+                title="Bruno DaSilva Portfolio"
+              >
                 <i className="fas fa-cookie-bite"></i>
               </a>
             </li>
