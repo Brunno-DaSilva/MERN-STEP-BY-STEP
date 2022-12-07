@@ -50,6 +50,7 @@ class App extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     fetch("/todos", {
       body: JSON.stringify({ description: this.state.description }),
       method: "POST",
@@ -108,7 +109,7 @@ class App extends React.Component {
 
           <div className="logo">
             <img
-              src="https://res.cloudinary.com/duprwuo4j/image/upload/v1574831158/imgs_starwars/imgs/BLOGO_k36v5y.png"
+              src="https://res.cloudinary.com/duprwuo4j/image/upload/v1574831158/Logo/BLOGO_k36v5y.png"
               alt="logo"
             />
           </div>
@@ -161,7 +162,7 @@ class App extends React.Component {
                 <i className="fas fa-clipboard-list"> </i> Task Name
               </th>
               <th className="table-title">
-                <i className="fas fa-calendar-check"></i>{" "}
+                <i className="fas fa-calendar-check"></i>
                 <i className="fas fa-trash"></i> <span>Action</span>
               </th>
             </tr>
