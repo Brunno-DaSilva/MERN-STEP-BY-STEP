@@ -58,7 +58,7 @@ const mongoose = require("mongoose");
 
 ### Add environment variables and set the App to Heroku deployment
 
-Setting the `process.env.PORT || localPortNumber` will ensure that your application will no matter what environment it is being connected, whether it is Heroku `process.env.PORT` or it is in your local machine `localPortNumber`
+Setting the `process.env.PORT || localPortNumber` will ensure that your application will run no matter what environment it is being connected, whether it is Heroku `process.env.PORT` or it is in your local machine `localPortNumber`
 
 ```
 //=============================
@@ -71,7 +71,7 @@ const PORT = process.env.PORT || 3000;
 
 ### Make the connection with MongoDB
 
-Set the the mongoURI pass the mongoDB parser and if the connection is successful log a message.
+Set the mongoURI by passing it as the first parameter in the mongoose.connect, as a second parameter pass the mongoDB parser and if the connection is successful log a message.
 
 ```
 //=============================
@@ -738,6 +738,6 @@ git push heroku master
 
 It can take a minute. Once it is completed, you can type `heroku open` You should be able to see your app deployed.
 
-### Demo: https://todo-app-with-mern-stack.herokuapp.com/
+#### Demo: https://todo-app-with-mern-stack.herokuapp.com/
 
 **[⬆ Back to Top](#summary)**
